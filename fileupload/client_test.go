@@ -60,8 +60,9 @@ func TestFileUploadList(t *testing.T) {
 	}
 
 	uploadParams := &stripe.FileUploadParams{
-		Purpose: "dispute_evidence",
-		File:    f,
+		Purpose:    "dispute_evidence",
+		FileReader: f,
+		Filename:   f.Name(),
 	}
 
 	_, err = New(uploadParams)
